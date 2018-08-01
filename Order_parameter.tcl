@@ -22,7 +22,7 @@ for {set c_num 2} {$c_num < $cmax_num} {incr c_num} {
     $CXN_1 delete
     $CXN_0 delete
 }
-puts $archivo "$frame\t$tail\t$frag\t[join $order_list "\t"]"     
+puts $archivo "$frame\t$tail\t$frag\t[join $order_list "\t"]" # Change this to accelerate the output. (lappend).
 }    
 }
 }
