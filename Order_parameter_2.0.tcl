@@ -1,6 +1,8 @@
 ### update in Order parameter calculation
 
 set frames [molinfo top get numframes]  ### st the max number of frames
+set name [molinfo top get name]
+set lista []
 
 for {set i 0} {i < $frames} {incr i} {
 	for {set frag 0} {$frag < 72} {incr frag} {
@@ -25,7 +27,7 @@ for {set i 0} {i < $frames} {incr i} {
 		}
 	}
 }
-set open_file [open "raw_data.dat" w]
+set open_file [open "raw_data_$name.dat" w]
 puts $open_file "frame\ttail\tfragment\tC2\tC3\tC4\tC5\tC6\tC7\tC8\tC9\tC10\tC11\tC12\tC13\tC14"  ## set title
 foreach k $lista {
 	puts $open_file $k
