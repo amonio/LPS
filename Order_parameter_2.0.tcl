@@ -2,16 +2,16 @@
 
 set frames [molinfo top get numframes]
 set name [molinfo top get name]
-set lista []
+set lista {}
 
-for {set i 0} {$i < $frames} {incr i} {
-	for {set frag 0} {$frag < 72} {incr frag} {
+for {set i 0} {$i < 1} {incr i} {
+	for {set frag 0} {$frag < 1} {incr frag} {
 		for {set tail 1} {$tail < 9} {if {$tail == 1 || $tail == 3} {incr tail 2} else {incr tail}} {
 			if {$tail != 6} {
-				set cmax 14
-			} else {set cmax 13}
+			  set cmax 14
+			} else {set cmax 12}
 			set order_list {}
-			for {set c 2} {$c < $cmax} {incr c} {
+			for {set c 2} {$c <= $cmax} {incr c} {
 				set CXN_1 [atomselect top "fragment $frag and resname ECLI and name C$tail$c" frame ${i}]
 				set c_1 [expr $c - 1]
 				set CXN_0 [atomselect top "fragment $frag and resname ECLI and name C$tail$c_1" frame ${i}]
